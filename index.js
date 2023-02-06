@@ -88,8 +88,9 @@ animalNames(zooAnimals);
 
 function lowerCaseNames(zooArr){
   const mappedArr = zooArr.map((elem) => {
-    return (elem.animal_name.toLowerCase());
+    return elem.animal_name.toLowerCase();
   });
+  console.log(mappedArr);
 }
 lowerCaseNames(zooAnimals);
 
@@ -105,10 +106,11 @@ function lowPopulationAnimals(zooArr){
   const filteredArr = zooArr.filter((elem) => {
     if (elem.population < 5){
       return(elem);
-  }
-    });
-  }
-  
+    }
+  });
+  console.log(filteredArr);
+}
+lowPopulationAnimals(zooAnimals);
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
@@ -239,10 +241,10 @@ CuboidMaker.prototype.surface = function () {
 //Using CuboidMakerTwo, take your prototypes from above and refactor into class syntax. Then, create an object called cuboidTwo that uses the new keyword to use our CuboidMakerTwo class.
  
 class CuboidMakerTwo {
-  constructor(length, width, height){
-    this.length = length;
-    this.width = width;
-    this.height = height;
+  constructor(attrs){
+    this.length = attrs.length;
+    this.width = attrs.width;
+    this.height = attrs.height;
   }
   volume () {
     return this.length * this.width * this.height;
@@ -252,7 +254,7 @@ class CuboidMakerTwo {
   }
 }
 
-const cuboidTwo = new CuboidMakerTwo(4, 5, 5);
+const cuboidTwo = new CuboidMakerTwo({length:4, width:5, height:5});
 
 
 

@@ -136,7 +136,7 @@ function USApop(zooArr){
   */
 
 function consume(a, b, cb){
-  cb(a, b);
+  return cb(a, b);
 }
  
   
@@ -146,8 +146,6 @@ function consume(a, b, cb){
  1. Receive two numbers as an argument that are passed in from its first and second parameters
  2. Return the sum of those numbers
  */
-
-
 function add(a, b){
   return a + b;
 }
@@ -217,8 +215,11 @@ CuboidMaker.prototype.volume = function () {
   💡 NOTE: Formula for cuboid surface area: 2 * (length * width + length * height + width * height)  
 */
 
-CuboidMaker.prototype.surface = function () {
-  return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
+CuboidMaker.prototype.surfaceArea = function () {
+  let a = 2 * (this.length * this.width);
+  let b = 2 * (this.length * this.height);
+  let c = 2 * (this.height * this.width);
+  return a + b + c;
 };
 
 
@@ -250,12 +251,15 @@ class CuboidMakerTwo {
     return this.length * this.width * this.height;
   }
   surfaceArea () {
-    return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
+    let a = 2 * (this.length * this.width);
+    let b = 2 * (this.length * this.height);
+    let c = 2 * (this.height * this.width);
+    return a + b + c;
   }
 }
 
 const cuboidTwo = new CuboidMakerTwo({length:4, width:5, height:5});
-
+cuboidTwo.surfaceArea();
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄

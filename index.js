@@ -90,7 +90,7 @@ function lowerCaseNames(zooArr){
   const mappedArr = zooArr.map((elem) => {
     return elem.animal_name.toLowerCase();
   });
-  console.log(mappedArr);
+  return mappedArr;
 }
 lowerCaseNames(zooAnimals);
 
@@ -108,7 +108,7 @@ function lowPopulationAnimals(zooArr){
       return(elem);
     }
   });
-  console.log(filteredArr);
+  return filteredArr;
 }
 lowPopulationAnimals(zooAnimals);
 

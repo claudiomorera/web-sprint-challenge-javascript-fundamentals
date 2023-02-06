@@ -68,11 +68,13 @@ const zooAnimals = [
   */
 
 function animalNames(zooArr){
-  zooArr.forEach((element) => {
-    return (`name: ${element.animal_name}, scientific: ${element.scientific_name}`);
+  let arr = [];
+  zooArr.forEach((elem) => {
+    arr.push(`name: ${elem.animal_name}, scientific: ${elem.scientific_name}`);
   });
+  return(arr);
 }
-
+animalNames(zooAnimals);
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -85,13 +87,12 @@ function animalNames(zooArr){
   */
 
 function lowerCaseNames(zooArr){
-  const mappedArr = zooArr.map((element) => {
-    let elem = element.animal_name.toLowerCase();
-    return elem;
+  const mappedArr = zooArr.map((elem) => {
+    return (elem.animal_name.toLowerCase());
   });
 }
-  
-  
+lowerCaseNames(zooAnimals);
+
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Use lowPopulationAnimals to do the following: 
@@ -100,9 +101,11 @@ function lowerCaseNames(zooArr){
   3. Return this new array
   */
 
-  function lowPopulationAnimals(zooArr){
-    const filteredArr = zooArr.filter((element) => {
-      return element.population < 5;
+function lowPopulationAnimals(zooArr){
+  const filteredArr = zooArr.filter((elem) => {
+    if (elem.population < 5){
+      return(elem);
+  }
     });
   }
   
@@ -146,7 +149,7 @@ function consume(a, b, cb){
 function add(a, b){
   return a + b;
 }
-
+consume(2, 3, add);
 /* Use multiply to do the following:
 1. Receive two numbers as an argument that are passed in from its first and second parameters
 2. Return the product of those numbers
@@ -156,17 +159,18 @@ function multiply(a, b){
   return a * b;
 }
 
-
+consume(2, 3, multiply);
  /* Use greeting to do the following:
 1. Receive two strings (a first name and last name) as an argument that are passed in from its first and second parameters
 2. Return "Hello {first-name} {last-name}, nice to meet you!"
 💡 NOTE: The string returned must match the format above or the test will not pass!
 */
 
-function greeting(fname, lname){
-   return `Hello ${fname} ${lname}, nice to meet you!`;
+function greeting(firstName, lastName){
+   return `Hello ${firstName} ${lastName}, nice to meet you!`;
 }
-  
+
+consume("James", "Potter", greeting);
   
 // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
@@ -227,8 +231,8 @@ CuboidMaker.prototype.surface = function () {
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-// console.log(cuboid.volume()); // 100
-// console.log(cuboid.surfaceArea()); // 130
+console.log(cuboid.volume()); // 100
+console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
@@ -243,18 +247,18 @@ class CuboidMakerTwo {
   volume () {
     return this.length * this.width * this.height;
   }
-  surface () {
+  surfaceArea () {
     return 2 * ((this.length * this.width) + (this.length * this.height) + (this.width * this.height));
   }
 }
 
-const cuboidTwo = new CuboidMakerTwo(60, 54, 30);
+const cuboidTwo = new CuboidMakerTwo(4, 5, 5);
 
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
 
